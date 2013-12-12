@@ -23,25 +23,18 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Plack::App::Directory::Apaxy",
   "PREREQ_PM" => {
-    "File::Basename" => 0,
-    "File::Spec::Unix" => 0,
     "Number::Bytes::Human" => 0,
     "Path::Tiny" => 0,
-    "Plack::App::Directory" => 0,
-    "Plack::MIME" => 0,
-    "Plack::Util" => 0,
-    "Plack::Util::Accessor" => 0,
+    "Plack" => 0,
     "Time::Piece" => 0,
     "URI::Escape" => 0,
     "parent" => 0
   },
   "TEST_REQUIRES" => {
-    "HTTP::Request::Common" => 0,
-    "HTTP::Response" => 0,
-    "Plack::Test" => 0,
+    "HTTP::Message" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -49,17 +42,10 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "File::Basename" => 0,
-  "File::Spec::Unix" => 0,
-  "HTTP::Request::Common" => 0,
-  "HTTP::Response" => 0,
+  "HTTP::Message" => 0,
   "Number::Bytes::Human" => 0,
   "Path::Tiny" => 0,
-  "Plack::App::Directory" => 0,
-  "Plack::MIME" => 0,
-  "Plack::Test" => 0,
-  "Plack::Util" => 0,
-  "Plack::Util::Accessor" => 0,
+  "Plack" => 0,
   "Test::More" => 0,
   "Time::Piece" => 0,
   "URI::Escape" => 0,

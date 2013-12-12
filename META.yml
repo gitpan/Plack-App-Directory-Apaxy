@@ -3,9 +3,7 @@ abstract: 'Serve static files from document root with directory index using Apax
 author:
   - 'Keedi Kim - 김도형 <keedi@cpan.org>'
 build_requires:
-  HTTP::Request::Common: 0
-  HTTP::Response: 0
-  Plack::Test: 0
+  HTTP::Message: 0
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
@@ -18,14 +16,9 @@ meta-spec:
   version: 1.4
 name: Plack-App-Directory-Apaxy
 requires:
-  File::Basename: 0
-  File::Spec::Unix: 0
   Number::Bytes::Human: 0
   Path::Tiny: 0
-  Plack::App::Directory: 0
-  Plack::MIME: 0
-  Plack::Util: 0
-  Plack::Util::Accessor: 0
+  Plack: 0
   Time::Piece: 0
   URI::Escape: 0
   parent: 0
@@ -33,4 +26,4 @@ resources:
   bugtracker: https://github.com/keedi/Plack-App-Directory-Apaxy/issues
   homepage: https://github.com/keedi/Plack-App-Directory-Apaxy
   repository: https://github.com/keedi/Plack-App-Directory-Apaxy.git
-version: 0.001
+version: 0.002

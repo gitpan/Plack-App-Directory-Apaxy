@@ -1,6 +1,6 @@
 package Plack::App::Directory::Apaxy;
 {
-  $Plack::App::Directory::Apaxy::VERSION = '0.001';
+  $Plack::App::Directory::Apaxy::VERSION = '0.002';
 }
 # ABSTRACT: Serve static files from document root with directory index using Apaxy
 
@@ -11,8 +11,6 @@ use warnings;
 use Plack::MIME;
 use Plack::Util;
 
-use File::Basename;
-use File::Spec::Unix;
 use Number::Bytes::Human;
 use Path::Tiny;
 use Time::Piece;
@@ -181,13 +179,7 @@ sub prepare_app {
 END_TEXT
 
     unless ( $self->apaxy_root ) {
-        $self->apaxy_root(
-            File::Spec::Unix->catdir(
-                File::Basename::dirname(__FILE__),
-                'Apaxy',
-                'public',
-            )
-        );
+        $self->apaxy_root( path(__FILE__)->parent->child(qw/ Apaxy public /) );
     }
 }
 
@@ -230,7 +222,7 @@ sub locate_apaxy {
     }
     return if grep $_ eq q{..}, @path;
 
-    my $file = File::Spec::Unix->catfile( $docroot, @path );
+    my $file = path( $docroot, @path );
     return unless $self->should_handle($file);
     return unless -r $file;
 
@@ -247,7 +239,7 @@ sub serve_path {
 
     if ( $dir =~ m{^/_apaxy/} ) {
         my $docroot = $self->apaxy_root;
-        my $file    = File::Spec::Unix->catfile( $docroot, $dir );
+        my $file    = path( $docroot, $dir );
         return $self->SUPER::serve_path( $env, $file ) if -f $file;
     }
 
@@ -412,7 +404,7 @@ Plack::App::Directory::Apaxy - Serve static files from document root with direct
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
