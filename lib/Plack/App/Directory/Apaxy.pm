@@ -1,6 +1,6 @@
 package Plack::App::Directory::Apaxy;
 {
-  $Plack::App::Directory::Apaxy::VERSION = '0.003';
+  $Plack::App::Directory::Apaxy::VERSION = '0.004';
 }
 # ABSTRACT: Serve static files from document root with directory index using Apaxy
 
@@ -241,12 +241,12 @@ sub locate_apaxy {
 sub serve_path {
     my ( $self, $env, $dir ) = @_;
 
-    return $self->SUPER::serve_path( $env, $dir ) if -e $dir;
+    return $self->SUPER::serve_path( $env, $dir ) if -f $dir;
 
     if ( $dir =~ m{^(/_apaxy/|/favicon.ico$)} ) {
         my $docroot = $self->apaxy_root;
         my $file    = path( $docroot, $dir );
-        return $self->SUPER::serve_path( $env, $file ) if -e $file;
+        return $self->SUPER::serve_path( $env, $file ) if -f $file;
     }
 
     my $dir_url = $env->{SCRIPT_NAME} . $env->{PATH_INFO};
@@ -408,7 +408,7 @@ Plack::App::Directory::Apaxy - Serve static files from document root with direct
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 

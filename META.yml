@@ -26,4 +26,4 @@ resources:
   bugtracker: https://github.com/keedi/Plack-App-Directory-Apaxy/issues
   homepage: https://github.com/keedi/Plack-App-Directory-Apaxy
   repository: https://github.com/keedi/Plack-App-Directory-Apaxy.git
-version: 0.003
+version: 0.004
