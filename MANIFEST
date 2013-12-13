@@ -78,6 +78,7 @@ lib/Plack/App/Directory/Apaxy/public/_apaxy/icons/video.png
 lib/Plack/App/Directory/Apaxy/public/_apaxy/icons/xml.png
 lib/Plack/App/Directory/Apaxy/public/_apaxy/icons/zip.png
 lib/Plack/App/Directory/Apaxy/public/_apaxy/style.css
+lib/Plack/App/Directory/Apaxy/public/favicon.ico
 share/#foo
 share/baybridge.jpg
 share/face.jpg
